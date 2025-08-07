@@ -1,0 +1,474 @@
+<?xml version='1.0' encoding='utf-8'?>
+<openrocket version="1.9" creator="OpenRocket 23.09">
+  <rocket>
+    <name>HANul</name>
+    <id>ec3d206c-4d52-4c26-a9a5-63c4591bb082</id>
+    <axialoffset method="absolute">0.0</axialoffset>
+    <position type="absolute">0.0</position>
+    <designer>ndh,NG</designer>
+    <motorconfiguration configid="1eb9c131-3f71-47a6-b5d4-9b40a7561353" default="true">
+      <stage number="0" active="true"/>
+    </motorconfiguration>
+    <referencetype>maximum</referencetype>
+
+    <subcomponents>
+      <stage>
+        <name>Sustainer</name>
+        <id>4b166929-b664-4771-80f2-bde8670b25e9</id>
+
+        <subcomponents>
+          <nosecone>
+            <name>Nose Cone</name>
+            <id>6bf1b03c-b8d0-4128-9f7d-a8891db0d65d</id>
+            <finish>normal</finish>
+            <material type="bulk" density="2200.0">Fiberglass</material>
+            <length>0.408</length>
+            <thickness>0.002</thickness>
+            <shape>haack</shape>
+            <shapeclipped>false</shapeclipped>
+            <shapeparameter>0.0</shapeparameter>
+            <aftradius>auto 0.068</aftradius>
+            <aftshoulderradius>0.065</aftshoulderradius>
+            <aftshoulderlength>0.0</aftshoulderlength>
+            <aftshoulderthickness>0.005</aftshoulderthickness>
+            <aftshouldercapped>false</aftshouldercapped>
+            <isflipped>false</isflipped>
+
+            <subcomponents>
+              <masscomponent>
+                <name>Payload</name>
+                <id>fd41772c-33be-4623-87d8-ab861c949581</id>
+                <axialoffset method="bottom">0.0</axialoffset>
+                <position type="bottom">0.0</position>
+                <packedlength>0.16</packedlength>
+                <packedradius>0.05</packedradius>
+                <radialposition>0.0</radialposition>
+                <radialdirection>0.0</radialdirection>
+                <mass>2.5</mass>
+                <masscomponenttype>payload</masscomponenttype>
+              </masscomponent>
+            </subcomponents>
+          </nosecone>
+
+          <bodytube>
+            <name>Frame1_271mm</name>
+            <id>12ecae65-287c-4a47-b5b7-eb21433a1a2f</id>
+            <finish>normal</finish>
+            <material type="bulk" density="2540.0">GFRP</material>
+            <length>0.271</length>
+            <thickness>0.003</thickness>
+            <radius>0.068</radius>
+
+            <subcomponents>
+              <trapezoidfinset>
+                <name>Canard Fin</name>
+                <id>4ac3b056-6c49-40fb-9a9d-1639afa59962</id>
+                <instancecount>4</instancecount>
+                <fincount>4</fincount>
+                <radiusoffset method="surface">0.0</radiusoffset>
+                <angleoffset method="relative">0.0</angleoffset>
+                <rotation>0.0</rotation>
+                <axialoffset method="bottom">0.035</axialoffset>
+                <position type="bottom">0.035</position>
+                <finish>normal</finish>
+                <material type="bulk" density="1260.0">Bambu PPA-CF</material>
+                <thickness>0.0018720000000000002</thickness>
+                <crosssection>airfoil</crosssection>
+                <cant>0.0</cant>
+                <filletradius>0.0</filletradius>
+                <filletmaterial type="bulk" density="680.0">Cardboard</filletmaterial>
+                <rootchord>0.05</rootchord>
+                <tipchord>0.02</tipchord>
+                <sweeplength>0.03</sweeplength>
+                <height>0.03</height>
+              </trapezoidfinset>
+
+              <tubecoupler>
+                <name>Coupler_1_139mm</name>
+                <id>504bbf5d-1036-40d4-961a-70fe1bead0cd</id>
+                <axialoffset method="top">0.0</axialoffset>
+                <position type="top">0.0</position>
+                <material type="bulk" density="1260.0">PPA-CF</material>
+                <length>0.139</length>
+                <radialposition>0.0</radialposition>
+                <radialdirection>0.0</radialdirection>
+                <outerradius>0.065</outerradius>
+                <thickness>0.003</thickness>
+              </tubecoupler>
+
+              <masscomponent>
+                <name>Parachute Deployment System</name>
+                <id>eb60ad7e-bd2d-4e18-96f3-a107cc9766f0</id>
+                <axialoffset method="top">0.12000000000000005</axialoffset>
+                <position type="top">0.12000000000000005</position>
+                <packedlength>0.15</packedlength>
+                <packedradius>0.063</packedradius>
+                <radialposition>0.0</radialposition>
+                <radialdirection>0.0</radialdirection>
+                <mass>0.2</mass>
+                <masscomponenttype>masscomponent</masscomponenttype>
+              </masscomponent>
+
+              <parachute>
+                <name>Drogue Parachute</name>
+                <id>f278dbb6-02eb-4019-9766-0caa1776418d</id>
+                <axialoffset method="bottom">-0.1</axialoffset>
+                <position type="bottom">-0.1</position>
+                <packedlength>0.05000000000000001</packedlength>
+                <packedradius>0.06</packedradius>
+                <radialposition>0.0</radialposition>
+                <radialdirection>0.0</radialdirection>
+                <cd>1.75</cd>
+                <material type="surface" density="0.067">Ripstop nylon</material>
+                <deployevent>apogee</deployevent>
+                <deployaltitude>300.0</deployaltitude>
+                <deploydelay>0.0</deploydelay>
+                <diameter>1.2100000000000002</diameter>
+                <linecount>8</linecount>
+                <linelength>0.7000000000000001</linelength>
+                <linematerial type="line" density="0.0043">Elastic cord (flat 6 mm, 1/4 in)</linematerial>
+              </parachute>
+            </subcomponents>
+          </bodytube>
+
+          <bodytube>
+            <name>Frame1_Canard_Part</name>
+            <id>2865c14b-d95d-4874-84dc-753d226e34e3</id>
+            <finish>normal</finish>
+            <material type="bulk" density="0.0">Just_Part</material>
+            <length>0.027</length>
+            <thickness>0.003</thickness>
+            <radius>auto 0.068</radius>
+
+            <subcomponents>
+              <masscomponent>
+                <name>Canard_System (Servo Motor &amp; Structure)</name>
+                <id>705f5cd4-4d4f-426a-9532-5ab9d2a900e5</id>
+                <axialoffset method="top">0.0</axialoffset>
+                <position type="top">0.0</position>
+                <packedlength>0.025</packedlength>
+                <packedradius>0.068</packedradius>
+                <radialposition>0.0</radialposition>
+                <radialdirection>0.0</radialdirection>
+                <mass>0.2</mass>
+                <masscomponenttype>masscomponent</masscomponenttype>
+              </masscomponent>
+            </subcomponents>
+          </bodytube>
+
+          <bodytube>
+            <name>Frame2_176mm_Avionics</name>
+            <id>d5214a53-438a-4e99-89e4-a51c807ac613</id>
+            <finish>normal</finish>
+            <material type="bulk" density="2540.0">GFRP</material>
+            <length>0.176</length>
+            <thickness>0.003</thickness>
+            <radius>auto 0.068</radius>
+
+            <subcomponents>
+              <masscomponent>
+                <name>Avionics</name>
+                <id>75651edf-89c5-4ec9-911a-16df6f3767ad</id>
+                <axialoffset method="top">0.0</axialoffset>
+                <position type="top">0.0</position>
+                <packedlength>0.17500000000000002</packedlength>
+                <packedradius>0.0525</packedradius>
+                <radialposition>0.0</radialposition>
+                <radialdirection>0.0</radialdirection>
+                <mass>1.5</mass>
+                <masscomponenttype>flightcomputer</masscomponenttype>
+              </masscomponent>
+            </subcomponents>
+          </bodytube>
+
+          <bodytube>
+            <name>RCS_Thruster</name>
+            <id>98ea4d87-41e4-437e-91db-00a2dcbea0dd</id>
+            <finish>normal</finish>
+            <material type="bulk" density="0.0">Just_Part</material>
+            <length>0.025</length>
+            <thickness>0.003</thickness>
+            <radius>auto 0.068</radius>
+
+            <subcomponents>
+              <masscomponent>
+                <name>RCS Thruster_Weight</name>
+                <id>d9f3169b-b5ef-4dd0-bff8-7907f821487f</id>
+                <axialoffset method="top">0.0</axialoffset>
+                <position type="top">0.0</position>
+                <packedlength>0.025</packedlength>
+                <packedradius>0.068</packedradius>
+                <radialposition>0.0</radialposition>
+                <radialdirection>0.0</radialdirection>
+                <mass>0.4</mass>
+                <masscomponenttype>masscomponent</masscomponenttype>
+              </masscomponent>
+            </subcomponents>
+          </bodytube>
+
+          <bodytube>
+            <name>Frame_2_1036mm</name>
+            <id>2cda500f-9574-40b6-bf71-90b86fe37965</id>
+            <finish>normal</finish>
+            <material type="bulk" density="2540.0">GFRP</material>
+            <length>1.0</length>
+            <thickness>0.003</thickness>
+            <radius>auto 0.068</radius>
+
+            <subcomponents>
+              <masscomponent>
+                <name>Low Pressure Fittings Weight</name>
+                <id>99192166-269c-4f2d-837a-f1bf19778c5c</id>
+                <axialoffset method="top">0.0</axialoffset>
+                <position type="top">0.0</position>
+                <packedlength>0.129</packedlength>
+                <packedradius>0.065</packedradius>
+                <radialposition>0.0</radialposition>
+                <radialdirection>0.0</radialdirection>
+                <mass>0.05</mass>
+                <masscomponenttype>masscomponent</masscomponenttype>
+              </masscomponent>
+
+              <masscomponent>
+                <name>High Pressure Fittings_Weight</name>
+                <id>3f711f98-19c5-46b6-b9d9-810bb6b99866</id>
+                <axialoffset method="top">0.2</axialoffset>
+                <position type="top">0.2</position>
+                <packedlength>0.353</packedlength>
+                <packedradius>0.065</packedradius>
+                <radialposition>0.0</radialposition>
+                <radialdirection>0.0</radialdirection>
+                <mass>1.7000000000000001</mass>
+                <masscomponenttype>masscomponent</masscomponenttype>
+              </masscomponent>
+
+              <masscomponent>
+                <name>N2 tank</name>
+                <id>bd69a4ac-04d1-4065-87b8-18318c0d7cf0</id>
+                <axialoffset method="top">0.555</axialoffset>
+                <position type="top">0.555</position>
+                <packedlength>0.32</packedlength>
+                <packedradius>0.055</packedradius>
+                <radialposition>0.0</radialposition>
+                <radialdirection>0.0</radialdirection>
+                <mass>1.35</mass>
+                <masscomponenttype>masscomponent</masscomponenttype>
+              </masscomponent>
+
+              <centeringring>
+                <name>Support_Tank_1</name>
+                <id>f5480135-6d4e-4fd1-81a7-eadc5bd48d11</id>
+                <instancecount>1</instancecount>
+                <instanceseparation>0.0</instanceseparation>
+                <axialoffset method="bottom">-0.39</axialoffset>
+                <position type="bottom">-0.39</position>
+                <material type="bulk" density="1060.0">PHAT-CF</material>
+                <length>0.01</length>
+                <radialposition>0.0</radialposition>
+                <radialdirection>0.0</radialdirection>
+                <outerradius>auto</outerradius>
+                <innerradius>0.055</innerradius>
+              </centeringring>
+
+              <tubecoupler>
+                <name>Coupler_3_272mm</name>
+                <id>474eec33-5c4b-427e-967a-ddf822443c98</id>
+                <axialoffset method="bottom">0.15600000000000006</axialoffset>
+                <position type="bottom">0.15600000000000006</position>
+                <material type="bulk" density="1260.0">PPA-CF</material>
+                <length>0.272</length>
+                <radialposition>0.0</radialposition>
+                <radialdirection>0.0</radialdirection>
+                <outerradius>auto</outerradius>
+                <thickness>0.003</thickness>
+
+                <subcomponents>
+                  <masscomponent>
+                    <name>Parachute Deployment System</name>
+                    <id>f456bb39-a00e-4cf1-aafe-2cf3ea542900</id>
+                    <axialoffset method="top">0.0</axialoffset>
+                    <position type="top">0.0</position>
+                    <packedlength>0.27</packedlength>
+                    <packedradius>0.063</packedradius>
+                    <radialposition>0.0</radialposition>
+                    <radialdirection>0.0</radialdirection>
+                    <mass>0.5</mass>
+                    <masscomponenttype>masscomponent</masscomponenttype>
+                  </masscomponent>
+
+                  <parachute>
+                    <name>Main Parachute</name>
+                    <id>98d1c434-a19a-4f4f-bbe6-326e643779d3</id>
+                    <axialoffset method="bottom">-0.11999999999999997</axialoffset>
+                    <position type="bottom">-0.11999999999999997</position>
+                    <packedlength>0.15000000000000005</packedlength>
+                    <packedradius>0.06</packedradius>
+                    <radialposition>0.0</radialposition>
+                    <radialdirection>0.0</radialdirection>
+                    <cd>2.2</cd>
+                    <material type="surface" density="0.067">Ripstop nylon</material>
+                    <deployevent>altitude</deployevent>
+                    <deployaltitude>305.0</deployaltitude>
+                    <deploydelay>0.0</deploydelay>
+                    <diameter>3.5100000000000002</diameter>
+                    <linecount>16</linecount>
+                    <linelength>2.2</linelength>
+                    <linematerial type="line" density="0.0043">Elastic cord (flat 6 mm, 1/4 in)</linematerial>
+                  </parachute>
+                </subcomponents>
+              </tubecoupler>
+
+              <masscomponent>
+                <name>Mass Component</name>
+                <id>c1c4222f-dd7b-4b15-af7d-92783b0538a0</id>
+                <axialoffset method="top">0.13</axialoffset>
+                <position type="top">0.13</position>
+                <packedlength>0.07</packedlength>
+                <packedradius>0.0625</packedradius>
+                <radialposition>0.0</radialposition>
+                <radialdirection>0.0</radialdirection>
+                <mass>0.8</mass>
+                <masscomponenttype>masscomponent</masscomponenttype>
+              </masscomponent>
+            </subcomponents>
+          </bodytube>
+
+          <bodytube>
+            <name>Frame3_660mm_Engine</name>
+            <id>ec03766a-4abb-41db-86da-e5fdfb991ee9</id>
+            <finish>normal</finish>
+            <material type="bulk" density="2540.0">GFRP</material>
+            <length>0.6725</length>
+            <thickness>0.003</thickness>
+            <radius>auto 0.068</radius>
+            <motormount>
+              <ignitionevent>automatic</ignitionevent>
+              <ignitiondelay>0.0</ignitiondelay>
+              <overhang>0.1</overhang>
+              <motor configid="1eb9c131-3f71-47a6-b5d4-9b40a7561353">
+                <type>reload</type>
+                <manufacturer>AeroTech</manufacturer>
+                <digest>94e5c6ef528b10c6fadf99c1cde7377f</digest>
+                <designation>M2400T</designation>
+                <diameter>0.098</diameter>
+                <length>0.597</length>
+                <delay>none</delay>
+              </motor>
+              <ignitionconfiguration configid="1eb9c131-3f71-47a6-b5d4-9b40a7561353">
+                <ignitionevent>automatic</ignitionevent>
+                <ignitiondelay>0.0</ignitiondelay>
+              </ignitionconfiguration>
+            </motormount>
+
+            <subcomponents>
+              <bulkhead>
+                <name>Bulkhead</name>
+                <id>17b0b4dc-d06e-49ae-aef1-ded80d8fdede</id>
+                <instancecount>1</instancecount>
+                <instanceseparation>0.0</instanceseparation>
+                <axialoffset method="top">0.15600000000000006</axialoffset>
+                <position type="top">0.15600000000000006</position>
+                <material type="bulk" density="2700.0">Aluminum</material>
+                <length>0.02</length>
+                <radialposition>0.0</radialposition>
+                <radialdirection>0.0</radialdirection>
+                <outerradius>0.064</outerradius>
+              </bulkhead>
+
+              <centeringring>
+                <name>Motor mid Fix</name>
+                <id>a252f4fd-76b8-49ae-8e65-d54f247277fa</id>
+                <instancecount>1</instancecount>
+                <instanceseparation>0.0</instanceseparation>
+                <axialoffset method="top">0.277</axialoffset>
+                <position type="top">0.277</position>
+                <material type="bulk" density="1780.0">Carbon fiber</material>
+                <length>0.004</length>
+                <radialposition>0.0</radialposition>
+                <radialdirection>0.0</radialdirection>
+                <outerradius>0.06500000000000002</outerradius>
+                <innerradius>0.049</innerradius>
+              </centeringring>
+
+              <centeringring>
+                <name>Motor mid Fix</name>
+                <id>842bd1ed-e7ff-4937-8a95-96153bdae3bd</id>
+                <instancecount>1</instancecount>
+                <instanceseparation>0.0</instanceseparation>
+                <axialoffset method="top">0.418</axialoffset>
+                <position type="top">0.418</position>
+                <material type="bulk" density="1780.0">Carbon fiber</material>
+                <length>0.004</length>
+                <radialposition>0.0</radialposition>
+                <radialdirection>0.0</radialdirection>
+                <outerradius>0.06500000000000002</outerradius>
+                <innerradius>0.049</innerradius>
+              </centeringring>
+
+              <centeringring>
+                <name>Motor mid Fix</name>
+                <id>df46a378-fe5c-4e26-9a1b-05d0380f8ee5</id>
+                <instancecount>1</instancecount>
+                <instanceseparation>0.0</instanceseparation>
+                <axialoffset method="top">0.562</axialoffset>
+                <position type="top">0.562</position>
+                <material type="bulk" density="1780.0">Carbon fiber</material>
+                <length>0.004</length>
+                <radialposition>0.0</radialposition>
+                <radialdirection>0.0</radialdirection>
+                <outerradius>0.06500000000000002</outerradius>
+                <innerradius>0.049</innerradius>
+              </centeringring>
+
+              <trapezoidfinset>
+                <name>Airfoil_Fins</name>
+                <id>ced05cd7-ad40-44d2-b002-8200811d1a61</id>
+                <instancecount>4</instancecount>
+                <fincount>4</fincount>
+                <radiusoffset method="surface">0.0</radiusoffset>
+                <angleoffset method="relative">0.0</angleoffset>
+                <rotation>0.0</rotation>
+                <axialoffset method="bottom">0.0</axialoffset>
+                <position type="bottom">0.0</position>
+                <finish>normal</finish>
+                <material type="bulk" density="1260.0">PPA-CF</material>
+                <thickness>0.01</thickness>
+                <crosssection>airfoil</crosssection>
+                <cant>0.0</cant>
+                <filletradius>0.0</filletradius>
+                <filletmaterial type="bulk" density="680.0">Cardboard</filletmaterial>
+                <rootchord>0.17</rootchord>
+                <tipchord>0.0663</tipchord>
+                <sweeplength>0.1443796269277951</sweeplength>
+                <height>0.13</height>
+              </trapezoidfinset>
+            </subcomponents>
+          </bodytube>
+
+          <transition>
+            <name>Tailcone</name>
+            <id>daf06378-3ff1-46ba-b4fe-bb6296080d51</id>
+            <finish>normal</finish>
+            <material type="bulk" density="2700.0">Aluminum</material>
+            <length>0.1</length>
+            <thickness>0.003</thickness>
+            <shape>conical</shape>
+            <foreradius>0.068</foreradius>
+            <aftradius>0.05</aftradius>
+            <foreshoulderradius>0.0</foreshoulderradius>
+            <foreshoulderlength>0.0</foreshoulderlength>
+            <foreshoulderthickness>0.0</foreshoulderthickness>
+            <foreshouldercapped>false</foreshouldercapped>
+            <aftshoulderradius>0.0</aftshoulderradius>
+            <aftshoulderlength>0.0</aftshoulderlength>
+            <aftshoulderthickness>0.0</aftshoulderthickness>
+            <aftshouldercapped>false</aftshouldercapped>
+          </transition>
+        </subcomponents>
+      </stage>
+    </subcomponents>
+  </rocket>
+
+  <photostudio>
+  </photostudio>
+</openrocket>
