@@ -1,0 +1,106 @@
+%% Command Generator Function
+function [command_Vector, msp, approach_point] = generate_commands_shj(real_time, Xk)
+    % Persistent 변수로 Phase 1 완료 상태 저장
+    persistent phase1_done;
+    if isempty(phase1_done)
+        phase1_done = false;
+    end
+    
+% 도킹 파라미터 설정 (커맨드 생성기 내부에 포함)
+    x_dock = 2154.4; % 도킹 지점의 x 좌표 [mm]
+    y_dock = 1485.4; % 도킹 지점의 y 좌표 [mm]
+    miss_ali = 0; % 오차 주입 값 - 도킹 라인에서의 병진 오차 [mm]
+    desired_docking_angle = -180; % 원하는 도킹 입사각 [deg]
+    target_rotation_angle = 90; % 상대 인공위성의 회전 각도 [deg]
+    miss_theta = 0; % 오차 주입 값 - 도킹 라인에서의 회전 오차 [deg]
+    theta_dock = deg2rad(desired_docking_angle + target_rotation_angle + miss_theta); % 실제 도킹 입사각 [rad]
+    
+    % 페이즈별 거리 설정
+    phase1_x = 1500; % Phase 1 목표 X 위치
+    phase1_tolerance = 150; % Phase 1 위치 허용 오차 (150mm로 증가)
+    phase2_distance = 500; % Phase 2 시작 거리 [mm]
+    phase3_distance = 200; % Phase 3 시작 거리 [mm]
+    phase4_distance = 100; % Phase 4 시작 거리 [mm]
+    docking_tolerance = 10; % 도킹 완료 허용 오차 [mm]
+    
+% 현재 위치
+    x_current = Xk(1);
+    y_current = Xk(2);
+    
+% 도킹 지점까지의 거리 계산
+    distance_to_dock = sqrt((x_dock - x_current)^2 + (y_dock - y_current)^2);
+    
+% Phase 1 완료 체크 (아직 완료 안 됐을 때만)
+    if ~phase1_done
+        % X 위치만 체크하거나, X와 Y 모두 느슨하게 체크
+        if abs(x_current - phase1_x) < phase1_tolerance && abs(y_current - y_dock) < phase1_tolerance
+            phase1_done = true; % 영구적으로 Phase 1 완료 표시
+            fprintf('Phase 1 completed! (X=%.1f, Y=%.1f)\n', x_current, y_current);
+            disp('Moving to Phase 2...');
+        end
+    end
+    
+% 접근 경로의 방향 벡터 계산 (y-forward)
+    approach_dir = [sin(theta_dock); cos(theta_dock)];
+    approach_point = [phase1_x; y_dock]; % Phase 1 목표점
+    
+if ~phase1_done
+    % Phase 1: 정렬 위치로 이동 + 자세 맞추기
+    pos_target_xy = [phase1_x; y_dock];
+    V = 60; % 속도 크기 [mm/s]
+    % 현재 위치에서 목표점으로의 방향
+    dir_to_target = pos_target_xy - [x_current; y_current];
+    if norm(dir_to_target) > 0
+        dir_to_target = dir_to_target / norm(dir_to_target);
+    else
+        dir_to_target = [0; 0];
+    end
+    pos_target_v = V * dir_to_target;
+    att_target = [theta_dock; 0]; % 도킹 입사각으로 자세 설정
+    msp = 1; % Phase 1
+    
+elseif distance_to_dock > phase2_distance  % 500mm 이상
+    % Phase 2: 빠른 접근
+    pos_target_xy = [x_dock; y_dock + miss_ali];
+    V = 40; % 빠른 속도 [mm/s]
+    pos_target_v = [0; V]; % y-forward 속도
+    att_target = [theta_dock; 0];
+    msp = 2; % Phase 2
+    
+elseif distance_to_dock > phase3_distance  % 200-500mm
+    % Phase 3: 중속 접근 (10mm/s)
+    pos_target_xy = [x_dock; y_dock + miss_ali];
+    V = 30; % 중간 속도 [mm/s]
+    pos_target_v = [0; V]; % y-forward 속도
+    att_target = [theta_dock; 0];
+    msp = 2; % 여전히 접근 모드
+    
+elseif distance_to_dock > phase4_distance  % 100-200mm
+    % Phase 4: 저속 최종 접근 (5mm/s)
+    pos_target_xy = [x_dock; y_dock + miss_ali];
+    V = 15; % 낮은 속도 [mm/s]
+    pos_target_v = [0; V]; % y-forward 속도
+    att_target = [theta_dock; 0];
+    msp = 2; % 여전히 접근 모드
+    
+elseif distance_to_dock > docking_tolerance  % 10-100mm
+    % Phase 4 계속: 매우 낮은 속도
+    pos_target_xy = [x_dock; y_dock + miss_ali];
+    V = 30; % 매우 낮은 속도 [mm/s]
+    pos_target_v = [0; V]; % y-forward 속도
+    att_target = [theta_dock; 0];
+    msp = 2;
+    
+else  % 10mm 이내
+    % 도킹 완료 상태
+    pos_target_xy = [x_dock; y_dock + miss_ali];
+    pos_target_v = [0; 0]; % 정지
+    att_target = [theta_dock; 0];
+    msp = 3; % 도킹 완료 시그널
+end
+
+% 목표 위치 및 속도 결합
+    pos_target = [pos_target_xy; pos_target_v];
+% 커맨드 벡터 생성 (6x1 벡터)
+    command_Vector = [pos_target; att_target];
+end
